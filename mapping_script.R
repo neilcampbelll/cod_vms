@@ -15,12 +15,12 @@
 
 
 #- Clear workspace
-
 rm(list=ls())
 
+## set location where your EFLALO and TACSAT files are
+folder.path <- "C:/Work/VMS/Results/"
 
 ## required libraries
-
 library(raster)
 library(vmstools) #- download from www.vmstools.org
 library(sp)
@@ -33,14 +33,14 @@ mesh.sizes <- c("below_100mm", "100mm_plus")
 ## and we are going to have two mesh size categories, above and below 100mm
 
 data(europa)
-pdf(file = "C:/Work/VMS/Results/Cod_Maps.pdf")
+pdf(file = paste(folder.path, "Cod_Maps.pdf", sep = "")
 
 
 for(i in 1:length(years)){
 for(j in 1:length(mesh.sizes)){
   
-load(paste("C:/Work/VMS/Results/cleanEflalo", years[i], ".Rdata", sep = ""))
-load(paste("C:/Work/VMS/Results/cleanTacsat", years[i], ".Rdata", sep = ""))
+load(paste(folder.path, "cleanEflalo", years[i], ".Rdata", sep = ""))
+load(paste(folder.path, "cleanTacsat", years[i], ".Rdata", sep = ""))
 
 # in our data we have
 ## "OTB" "OTT" "GNS" "FPO" "OTM" "PTM" "TBN" "PTB" "LX"  "TB"  "GNC"
@@ -113,7 +113,7 @@ plot(cod.raster, add = T)
 title(main = years[i], sub = mesh.sizes[j])
 
 
-writeRaster(cod.raster, paste("C:/Work/VMS/Results/Cod_", country, "_", years[i], "_", mesh.sizes[j],sep=""), format = "raster")
+writeRaster(cod.raster, paste(folder.path, "Cod_", country, "_", years[i], "_", mesh.sizes[j],sep=""), format = "raster")
 ## writes the output
 }}
 
