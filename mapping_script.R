@@ -113,7 +113,7 @@ plot(cod.raster, add = T)
 title(main = years[i], sub = mesh.sizes[j])
 
 
-writeRaster(cod.raster, paste(folder.path, "Cod_", country, "_", years[i], "_", mesh.sizes[j],sep=""), format = "raster")
+writeRaster(cod.raster, paste(folder.path, "Cod_", country, "_", years[i], "_", mesh.sizes[j],sep=""), overwrite = TRUE, format = "raster")
 ## writes the output
 }}
 
