@@ -33,7 +33,7 @@ mesh.sizes <- c("below_100mm", "100mm_plus")
 ## and we are going to have two mesh size categories, above and below 100mm
 
 data(europa)
-pdf(file = paste(folder.path, "Cod_Maps.pdf", sep = "")
+pdf(file = paste(folder.path, "Cod_Maps.pdf", sep = ""))
 
 
 for(i in 1:length(years)){
