@@ -28,7 +28,7 @@ library(sp)
 country <- "UK"
 
 years <- c(2014, 2015, 2016, 2017, 2018)
-## we are more interested in recent years, so lets see if we can use 2012 onwards
+## we are more interested in recent years, so lets see if we can use 2014 onwards
 mesh.sizes <- c("below_100mm", "100mm_plus")
 ## and we are going to have two mesh size categories, above and below 100mm
 
