@@ -77,7 +77,7 @@ tacsat$ACTIVITY <- 0
  ## assigns a value of 1 to pings at fishing speeds - the range used is 3-5 knots for otter trawls and 0.5 to 5 for seines
 ## other fleets may have their own more appropriate ranges 
 tacsat$ACTIVITY[tacsat$LE_GEAR %in% c("OTB", "OTT", "PTB") & tacsat$SI_SP >=3 & tacsat$SI_SP <=5] <- 1
-tacsat$ACTIVITY[tacsat$LE_GEAR %in% c("SCC", "SDN") & tacsat$SI_SP >=0.5 & tacsat$SI_SP <=5] <- 1
+tacsat$ACTIVITY[tacsat$LE_GEAR %in% c("SSC", "SDN") & tacsat$SI_SP >=0.5 & tacsat$SI_SP <=5] <- 1
 
 ## removes tacsat data which have not been correctly assigned to a fishing trip record
 tacsat <- tacsat[!is.na(tacsat$FT_REF),]
