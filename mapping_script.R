@@ -3,7 +3,7 @@
 ##  EU-Norway VMS & Logbook    ##
 ##   Cod Data Processing       ##
 ##                             ##
-##############nc.09.01.2020######
+#################################
 
 ## This script takes the standardised EFLALO and TACSAT files which are held
 ## at national level, and processes them to produce an aggregated data product
