@@ -90,9 +90,15 @@ day.pings <- tapply(tacsat$ACTIVITY, tacsat$UID, sum)
 
 sum(day.pings == 0) ## you shouldn't have an zeroes
 
+# aggregate cod catches to UID level first
+eflalo_short<-eflalo[,c("UID", "LE_KG_COD")]
+eflalo_agg<-aggregate(eflalo_short$LE_KG_COD, by=list(eflalo_short$UID), FUN=sum,na.rm=T)
+names(eflalo_agg)<-c("UID", "LE_KG_COD")
+    
 ## calculate the catch per ping for each vessel/day
-cod.per.ping <- eflalo$LE_KG_COD/day.pings[match(eflalo$UID,names(day.pings))]
-
+#cod.per.ping <- eflalo$LE_KG_COD/day.pings[match(eflalo$UID,names(day.pings))]
+cod.per.ping  <- eflalo_agg$LE_KG_COD/day.pings[match(eflalo_agg$UID,names(day.pings))]
+  
 tacsat$COD <- cod.per.ping[match(tacsat$UID, names(cod.per.ping))]
 ## assign a value of cod catch to each ping
 
